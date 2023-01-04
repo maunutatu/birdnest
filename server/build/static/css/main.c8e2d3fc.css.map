@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.c8e2d3fc.css","mappings":"AAAA,KACI,6BAA+B,CAC/B,eACJ,CAEA,WACI,iBACJ","sources":["index.css"],"sourcesContent":["body {\r\n    font-family: Roboto, sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.container {\r\n    text-align: center;\r\n}"],"names":[],"sourceRoot":""}
