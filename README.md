@@ -45,7 +45,7 @@ Go to the backend directory
 
 ### Start with Docker:
 ```
-docker build -t birdnest
+docker build -t birdnest .
 docker run -p 5000:8080 --env-file ./.env --name birdnest
 ```
 
