@@ -72,7 +72,7 @@ async function fetchDrones() {
           const indexOfOldObject = oldDrones.map(drone => drone.serialNumber).indexOf(serialNumber)
 
           // Checking if the new observation was closer to the nest than the previous one
-          if (oldDrones[indexOfOldObject].closestDistanceFromNest <= distanceFromNest) {
+          if (oldDrones[indexOfOldObject].closestDistanceFromNest >= distanceFromNest) {
             // If the new observation was closer than a previous one, the distance and time of the observation are updated
             await Drone.findOneAndUpdate({serialNumber: serialNumber}, {closestDistanceFromNest: distanceFromNest, spottedTheLatest: time}, {new: true, runValidators: true, context: 'query'})
           } else {
@@ -85,11 +85,10 @@ async function fetchDrones() {
         }
       }
     }
-
     // An array of the drones is returned from MONGODB for sending it to the client
     return await Drone.find({})
   } catch (error) {
-    logger.info('Server failed to provide drone information')
+    logger.info('Server failed to provide drone information', error.message)
   }
 }
 

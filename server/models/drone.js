@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 
 // Schema for a drone observation
 const droneSchema = new mongoose.Schema({
-  serialNumber: {type: String, required: true},
+  serialNumber: {type: String, required: true, unique: true},
   closestDistanceFromNest: {type: Number, required: true},
   spottedTheLatest: {type: String, required: true},
-  name: String,
+  name: {type: String, unique: true},
   phoneNumber: String,
   email: String
 })
